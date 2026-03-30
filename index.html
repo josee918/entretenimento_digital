@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal VIP - Curadoria de Entretenimento Digital</title>
+    <style>
+        /* Paleta de cores de alta intensidade, totalmente diferente do original */
+        :root {
+            --primary: #FF007A; /* Magenta vibrante */
+            --secondary: #4A00E0; /* Roxo profundo */
+            --bg-gradient-1: #f6d365; /* Amarelo quente */
+            --bg-gradient-2: #fda085; /* Laranja suave */
+            --card-bg: #ffffff; /* Fundo do cartão branco */
+            --text-dark: #1F2937;
+            --text-muted: #4B5563;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 90%;
+            margin: 40px auto;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .header-title {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px rgba(255,255,255,0.6);
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 35px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+            border-top: 6px solid var(--primary);
+            position: relative;
+        }
+
+        .badge {
+            background: var(--secondary);
+            color: #fff;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .card h2 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            background: #f3f4f6;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 10px;
+        }
+
+        .description {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            box-shadow: 0 8px 20px rgba(255, 0, 122, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 0, 122, 0.5);
+        }
+
+        .community-links {
+            margin-top: 25px;
+            font-size: 0.95rem;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .community-links p {
+            margin: 0 0 10px 0;
+            font-weight: bold;
+            color: var(--text-muted);
+        }
+
+        .community-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 800;
+            margin: 0 8px;
+            font-size: 1.05rem;
+        }
+
+        .personal-section {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 25px;
+            border-radius: 16px;
+            backdrop-filter: blur(5px);
+        }
+
+        .personal-section h3 {
+            color: var(--secondary);
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .personal-section p {
+            margin: 0 0 10px 0;
+            color: var(--text-dark);
+        }
+
+        .personal-link {
+            color: var(--primary);
+            font-weight: 900;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: inline-block;
+            background: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #333;
+            background: rgba(255, 255, 255, 0.8);
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #333;
+            text-decoration: underline;
+            margin: 0 10px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-title">Portal Oficial<br>(Plataforma Nova)</div>
+        <div class="subtitle">
+            Análises detalhadas das plataformas mais estáveis e seguras de 2026.<br>
+            Conteúdo exclusivo para membros da comunidade.
+        </div>
+
+        <div class="card">
+            <div class="badge">Plataforma Oficial Verificada</div>
+            <h2>Análise de Performance: Vip345.com</h2>
+
+            <div class="price">Jogos: R$ 0,30 WG</div>
+
+            <div class="description">
+                Interface otimizada para dispositivos móveis com tempo de resposta imediato e suporte ativo.
+            </div>
+
+            <a href="#" class="btn">Acessar Plataforma Oficial</a>
+
+            <div class="community-links">
+                <p>Ver Comunidade no Instagram:</p>
+                <a href="https://instagram.com/viiip_slots" target="_blank">@viiip_slots</a> |
+                <a href="https://instagram.com/8385_vips" target="_blank">@8385_vips</a>
+            </div>
+        </div>
+
+        <div class="personal-section">
+            <h3>Instagram Pessoal</h3>
+            <p>Esse é meu perfil do Instagram pessoal, acompanhe lá:</p>
+            <a href="https://instagram.com/josefabiianoreiis" target="_blank" class="personal-link">@josefabiianoreiis</a>
+        </div>
+    </div>
+
+<div>
+  <h3>Jogo Responsável e Isenção de Responsabilidade</h3>
+  <p>Este site atua apenas na divulgação de plataformas de jogos e apostas. Não incentivamos o jogo irresponsável. A participação é uma decisão pessoal e consciente, proibida para menores de 18 anos. Recomendamos sempre consultar os termos e condições de cada plataforma divulgada.</p>
+
+  <h3>Direitos Autorais</h3>
+  <p>&copy; 2026 [josee_reiiis]. Todos os direitos reservados. É proibida a reprodução total ou parcial do conteúdo deste site sem autorização prévia por escrito.</p>
+</div>
+
+    <footer>
+        <p>© 2026 Portal Oficial. Todos os direitos reservados.</p>
+        <p>
+            <a href="#">Políticas de Privacidade</a>
+            <a href="#">Termos e Condições</a>
+        </p>
+    </footer>
+
+</body>
+</html>
