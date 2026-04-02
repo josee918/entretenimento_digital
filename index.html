@@ -4,246 +4,203 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal VIP - Curadoria de Entretenimento Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* Paleta de cores de alta intensidade, totalmente diferente do original */
         :root {
-            --primary: #FF007A; /* Magenta vibrante */
-            --secondary: #4A00E0; /* Roxo profundo */
-            --bg-gradient-1: #f6d365; /* Amarelo quente */
-            --bg-gradient-2: #fda085; /* Laranja suave */
-            --card-bg: #ffffff; /* Fundo do cartão branco */
-            --text-dark: #1F2937;
-            --text-muted: #4B5563;
+            --primary: #FF007A;
+            --secondary: #4A00E0;
+            --accent: #00F2FE;
+            --bg: #F3F4F6;
+            --text-main: #111827;
+            --text-muted: #6B7280;
+            --white: #FFFFFF;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
-            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 600px;
-            width: 90%;
+            max-width: 500px;
             margin: 40px auto;
+            padding: 20px;
             text-align: center;
-            flex-grow: 1;
         }
 
         .header-title {
-            font-size: 2.2rem;
-            color: var(--secondary);
-            text-transform: uppercase;
-            font-weight: 900;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 5px rgba(255,255,255,0.6);
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
         .subtitle {
-            font-size: 1.05rem;
-            color: var(--text-dark);
-            margin-bottom: 35px;
-            font-weight: 600;
-            background: rgba(255, 255, 255, 0.5);
-            padding: 15px;
-            border-radius: 12px;
-            backdrop-filter: blur(5px);
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 500;
         }
 
-        .card {
-            background: var(--card-bg);
-            border-radius: 24px;
-            padding: 35px 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            margin-bottom: 30px;
-            border-top: 6px solid var(--primary);
-            position: relative;
+        .main-card {
+            background: var(--white);
+            border-radius: 28px;
+            padding: 30px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 25px;
         }
 
         .badge {
-            background: var(--secondary);
-            color: #fff;
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: bold;
+            background: #ECFDF5;
+            color: #059669;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
             display: inline-block;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-        }
-
-        .card h2 {
-            color: var(--primary);
-            font-size: 1.6rem;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 1.25rem;
-            font-weight: 800;
             margin-bottom: 20px;
-            color: var(--text-dark);
-            background: #f3f4f6;
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 10px;
         }
 
-        .description {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
+        .platform-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .price-tag {
+            background: var(--bg);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
         }
 
         .btn {
             display: block;
-            width: 100%;
-            padding: 18px;
             background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
+            color: var(--white);
             text-decoration: none;
-            font-weight: bold;
+            padding: 18px;
+            border-radius: 16px;
+            font-weight: 700;
             font-size: 1.1rem;
-            border-radius: 12px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-            box-shadow: 0 8px 20px rgba(255, 0, 122, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 15px -3px rgba(255, 0, 122, 0.3);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(255, 0, 122, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(255, 0, 122, 0.4);
         }
 
-        .community-links {
-            margin-top: 25px;
-            font-size: 0.95rem;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .community-links p {
-            margin: 0 0 10px 0;
-            font-weight: bold;
-            color: var(--text-muted);
-        }
-
-        .community-links a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 800;
-            margin: 0 8px;
-            font-size: 1.05rem;
-        }
-
-        .personal-section {
-            margin-top: 20px;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 25px;
-            border-radius: 16px;
-            backdrop-filter: blur(5px);
-        }
-
-        .personal-section h3 {
-            color: var(--secondary);
-            margin: 0 0 10px 0;
-            font-size: 1.2rem;
-        }
-
-        .personal-section p {
-            margin: 0 0 10px 0;
-            color: var(--text-dark);
-        }
-
-        .personal-link {
-            color: var(--primary);
-            font-weight: 900;
-            text-decoration: none;
-            font-size: 1.2rem;
-            display: inline-block;
-            background: #fff;
-            padding: 8px 20px;
+        .social-section {
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
             border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .social-section h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .social-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0 10px;
+        }
+
+        .legal-section {
+            margin-top: 40px;
+            text-align: left;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding: 20px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .legal-section h4 {
+            color: var(--text-main);
+            margin-bottom: 5px;
+            font-size: 0.85rem;
         }
 
         footer {
-            padding: 20px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #333;
-            background: rgba(255, 255, 255, 0.8);
-            width: 100%;
-            margin-top: 40px;
+            margin-top: 30px;
+            padding-bottom: 40px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
         }
 
         footer a {
-            color: #333;
-            text-decoration: underline;
+            color: var(--text-muted);
             margin: 0 10px;
-            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="header-title">Portal Oficial<br>(Plataforma Nova)</div>
-        <div class="subtitle">
-            Análises detalhadas das plataformas mais estáveis e seguras de 2026.<br>
-            Conteúdo exclusivo para membros da comunidade.
-        </div>
+        <header>
+            <div class="header-title">Portal VIP</div>
+            <div class="subtitle">Curadoria especializada em entretenimento digital e análises de segurança 2026.</div>
+        </header>
 
-        <div class="card">
-            <div class="badge">Plataforma Oficial Verificada</div>
-            <h2>Análise de Performance: Vip345.com</h2>
+        <main class="main-card">
+            <div class="badge">● Conexão Segura Verificada</div>
+            <div class="platform-name">Análise: 27b-Slots</div>
+            <div class="price-tag">Entrada: R$ 0,30 WG</div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px;">
+                Nossa equipe técnica validou a estabilidade de saques e a fluidez da interface mobile desta plataforma.
+            </p>
+            <a href="https://27baa19.com/?pid=583030832" class="btn">Acessar Plataforma Oficial</a>
+        </main>
 
-            <div class="price">Jogos: R$ 0,30 WG</div>
-
-            <div class="description">
-                Interface otimizada para dispositivos móveis com tempo de resposta imediato e suporte ativo.
+        <section class="social-section">
+            <h3>Acompanhe nas Redes</h3>
+            <div style="margin-bottom: 15px;">
+                <a href="https://instagram.com/viiip_slots" target="_blank" class="social-link">@viiip_slots</a>
+                <a href="https://instagram.com/8385_vips" target="_blank" class="social-link">@8385_vips</a>
             </div>
-
-            <a href="#" class="btn">Acessar Plataforma Oficial</a>
-
-            <div class="community-links">
-                <p>Ver Comunidade no Instagram:</p>
-                <a href="https://instagram.com/viiip_slots" target="_blank">@viiip_slots</a> |
-                <a href="https://instagram.com/8385_vips" target="_blank">@8385_vips</a>
+            <div style="border-top: 1px solid rgba(0,0,0,0.05); pt-15px; margin-top: 15px;">
+                <p style="font-size: 0.85rem; margin-bottom: 5px;">Contato Direto:</p>
+                <a href="https://www.instagram.com/josee_reiiis?igsh=YzJmdzM2bHdleTVm" target="_blank" class="social-link" style="color: var(--primary);">@josefabiianoreiis</a>
             </div>
+        </section>
+
+        <div class="legal-section">
+            <h4>Jogo Responsável e Isenção de Responsabilidade</h4>
+            <p>Este portal atua exclusivamente como veículo informativo e de curadoria publicitária. O entretenimento digital que envolve apostas deve ser encarado como lazer, nunca como fonte de renda. A participação é uma decisão voluntária, individual e restrita a maiores de 18 anos. Recomendamos a leitura integral dos Termos de Uso da plataforma de destino antes de qualquer atividade.</p>
+
+            <h4>Direitos Autorais e Propriedade Intelectual</h4>
+            <p>&copy; 2026 Jose Reis. Todos os direitos reservados. O design, textos e elementos gráficos deste portal são protegidos por leis de propriedade intelectual. A reprodução, cópia ou espelhamento deste conteúdo sem autorização expressa resultará em medidas legais cabíveis.</p>
         </div>
 
-        <div class="personal-section">
-            <h3>Instagram Pessoal</h3>
-            <p>Esse é meu perfil do Instagram pessoal, acompanhe lá:</p>
-            <a href="https://instagram.com/josefabiianoreiis" target="_blank" class="personal-link">@josefabiianoreiis</a>
-        </div>
+        <footer>
+            <p>© 2026 Portal Oficial. Excelência em Curadoria.</p>
+            <p>
+                <a href="#">Privacidade</a>
+                <a href="#">Termos</a>
+            </p>
+        </footer>
     </div>
-<div>
-  <h3>Jogo Responsável e Isenção de Responsabilidade</h3>
-  <p>Este site atua apenas na divulgação de plataformas de jogos e apostas. Não incentivamos o jogo irresponsável. A participação é uma decisão pessoal e consciente, proibida para menores de 18 anos. Recomendamos sempre consultar os termos e condições de cada plataforma divulgada.</p>
-
-  <h3>Direitos Autorais</h3>
-  <p>&copy; 2026 [josee_reiiis]. Todos os direitos reservados. É proibida a reprodução total ou parcial do conteúdo deste site sem autorização prévia por escrito.</p>
-</div>
-    <footer>
-        <p>© 2026 Portal Oficial. Todos os direitos reservados.</p>
-        <p>
-            <a href="#">Políticas de Privacidade</a>
-            <a href="#">Termos e Condições</a>
-        </p>
-    </footer>
 
 </body>
 </html>
